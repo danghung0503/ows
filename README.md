@@ -42,4 +42,6 @@ Copy jwt token and paste into request header
 ##### url: http://localhost:8080/auth/detail
 ##### http method: GET
 ##### Request header:
-##### Authorization: <jwt_value>
+````
+Authorization: <jwt_value>
+````
