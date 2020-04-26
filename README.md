@@ -1,4 +1,4 @@
-###install composer
+### install composer
 ``composer install``
 ### create mysql database
 ### config database in config/database.php
