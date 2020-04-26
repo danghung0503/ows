@@ -3,14 +3,17 @@ namespace controller;
 
 use base\controller\Controller;
 use http\Request;
+use middleware\AuthMiddleware;
 use service\AuthService;
 
 class AuthController extends Controller
 {
     private object $service;
+    private AuthMiddleware $middleware;
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware = new AuthMiddleware();
+        $this->middleware($this->middleware)->except(['/auth/login']);
         $this->service = new AuthService();
     }
 

@@ -2,6 +2,7 @@
 
 namespace provider;
 use Firebase\JWT\JWT;
+use Exception;
 class JwtProvider
 {
     private string $secretKey;
@@ -40,8 +41,17 @@ class JwtProvider
     }
 
     public function decode($token){
-        $jwt = explode($this->tokenType. ' ',$token)[1];
-        $data = JWT::decode($jwt, $this->secretKey, array('HS512'));
-        return $data;
+        try {
+            $params = explode($this->tokenType. ' ',$token);
+            $data = null;
+            if(count($params) > 1) {
+                $jwt = explode($this->tokenType. ' ',$token)[1];
+                $data = JWT::decode($jwt, $this->secretKey, array('HS512'));
+            }
+            return $data;
+        }catch(Exception $ex) {
+            echo $ex->getMessage();
+            return null;
+        }
     }
 }

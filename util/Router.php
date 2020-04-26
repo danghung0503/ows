@@ -2,11 +2,12 @@
 
 namespace util;
 
+use base\controller\Controller;
 use exception\MethodNotAllowException;
+use http\Request;
 use ReflectionMethod;
 use constant\HttpMethod;
 use exception\RouteNotFoundException;
-
 class Router
 {
     private static array $routers = [];
@@ -49,7 +50,11 @@ class Router
                 if ($_SERVER['REQUEST_METHOD'] == $router['type']) {
                     $class = 'controller' . '\\' . $router['controller'];
                     $object = new $class;
-
+                    $middleware = $object->getMiddleware();
+                    if(empty($middleware->process(new Request()))) {
+                        echo 'not authenticated';
+                        return;
+                    }
 
                     $method = $router['method'];
 

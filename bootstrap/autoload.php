@@ -13,6 +13,7 @@ $directories = [
     'service',
     'database',
     'http',
+    'middleware',
     'controller',
     'routes'
 ];

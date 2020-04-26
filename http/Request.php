@@ -16,16 +16,16 @@ class Request
     public function get($field)
     {
         if ($this->type == HttpMethod::GET) {
-            return $_GET[$field];
+            return isset($_GET[$field]) ? $_GET[$field] : null;
         } else if ($this->type == HttpMethod::POST) {
             $data = json_decode(file_get_contents('php://input'), true);
-            return $data[$field];
+            return isset($data[$field]) ? $data[$field] : null;
         }
         return null;
     }
 
     /**
-     * @param $field: field need to get value from header
+     * @param $field : field need to get value from header
      * @return string: value of field in header
      */
     public function getHeader($field)
@@ -38,6 +38,6 @@ class Request
             $header = str_replace(' ', '-', ucwords(str_replace('_', ' ', strtolower(substr($key, 5)))));
             $headers[$header] = $value;
         }
-        return $headers[$field];
+        return isset($headers[$field]) ? $headers[$field] : null;
     }
 }

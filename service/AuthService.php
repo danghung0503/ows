@@ -29,8 +29,6 @@ class AuthService
     }
 
     public function getDetail(Request $request){
-        $token = $request->getHeader('Authorization');
-        $jwtData = $this->jwtProvider->decode($token);
         $id = $request->get('id');
         return $this->repository->findById($id);
     }

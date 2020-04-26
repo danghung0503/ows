@@ -19,6 +19,8 @@ class SQLRepository implements DatabaseRepository
 
     public function findById($id)
     {
+        if(empty($id))
+            return null;
         $table = $this->model->getTable();
         $keyField = $this->model->getKeyField();
         $sql = "SELECT * FROM  $table WHERE $keyField = $id";

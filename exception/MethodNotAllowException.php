@@ -3,7 +3,6 @@
 
 namespace exception;
 use RuntimeException;
-use Throwable;
 
 class MethodNotAllowException extends RuntimeException
 {
