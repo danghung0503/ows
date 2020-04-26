@@ -7,8 +7,8 @@ Note:
 1. All route can be found in routes/api.php
 2. Example
 #### create new user to test
-url: http://localhost:8080/auth/sign-up
-http method: POST
+##### url: http://localhost:8080/auth/sign-up
+##### http method: POST
 Payload:
 ````
 {
@@ -20,8 +20,8 @@ Payload:
 }
 ````
 #### login
-url: http://localhost:8080/auth/login
-http method: POST
+##### url: http://localhost:8080/auth/login
+##### http method: POST
 Payload:
 ````
 {
@@ -39,7 +39,7 @@ Response:
 Copy jwt token and paste into request header
 
 #### get detail
-url: http://localhost:8080/auth/detail
-http method: GET
-Request header:
-Authorization: <jwt_value>
+##### url: http://localhost:8080/auth/detail
+##### http method: GET
+##### Request header:
+##### Authorization: <jwt_value>
