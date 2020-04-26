@@ -4,6 +4,7 @@ require_once('vendor/autoload.php');
 
 //class directories
 $directories = [
+    'exception',
     'util',
     'provider',
     'base',
