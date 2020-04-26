@@ -1,5 +1,13 @@
+### clone project
+````
+git clone https://github.com/danghung0503/ows.git
+````
 ### install composer
 ``composer install``
+### run project
+````
+php -S localhost:8080 -t .
+````
 ### create mysql database
 ### config database in config/database.php
 ### execute query in database/sql/ows.sql
